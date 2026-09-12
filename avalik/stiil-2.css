@@ -1,27 +1,81 @@
 /* C02 Ex2 — näidislahendus. Vormi seisundite stiil. */
 
-body { font-family: system-ui, sans-serif; line-height: 1.5; margin: 0; color: #1a1a1a; }
-main { max-width: 34rem; margin: 0 auto; padding: 1.5rem; }
+body {
+  font-family: "Trebuchet MS", sans-serif;
+  line-height: 1.5;
+  margin: 0;
+  color: var(--tekst, #1a1a1a);
+  background: var(--pinnad, #fff);
+}
+
+header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem;
+  background: var(--pind-teine, #f2f5f7);
+  border-block-end: 1px solid var(--jooned, #c7d2d8);
+}
+
+.logo {
+  margin: 0;
+  color: var(--tekst, #1a1a1a);
+  text-decoration: none;
+}
+
+.tagasi-link {
+  color: var(--rõhk, #9b4d32);
+  text-decoration: none;
+}
+
+.tagasi-link:hover {
+  text-decoration: underline;
+}
+
+main {
+  max-width: 34rem;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
 
 fieldset {
   border: 1px solid #c7d2d8;
-  border-radius: 4px;
+  border-radius: var(--raadius, 6px);
   margin: 0 0 1.5rem;
   padding: 0.5rem 1rem 1rem;
+  background: var(--pind-teine, #f8fafb);
 }
-legend { font-weight: 700; padding: 0 0.4rem; }
 
-.valja { display: flex; flex-direction: column; gap: 0.25rem; margin: 0 0 1rem; }
-label { font-weight: 600; }
+legend {
+  font-weight: 700;
+  padding: 0 0.4rem;
+}
 
-input, select, textarea {
+.valja {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin: 0 0 1rem;
+}
+
+label {
+  font-weight: 600;
+}
+
+input,
+select,
+textarea {
   font: inherit;
   padding: 0.45rem 0.6rem;
-  border: 1px solid #94a6b0;
+  border: 1px solid var(--jooned, #94a6b0);
   border-radius: 4px;
-  background: #fff;
+  background: var(--pinnad, #fff);
 }
-:focus-visible { outline: 3px solid #0b6b8f; outline-offset: 2px; }
+
+:focus-visible {
+  outline: 3px solid #0b6b8f;
+  outline-offset: 2px;
+}
 
 /* ★ :user-invalid, MITTE :invalid.
    `:invalid` kehtib kohe lehe avanemisel — tühi kohustuslik väli ON kehtetu
@@ -31,17 +85,30 @@ input:user-invalid,
 select:user-invalid,
 textarea:user-invalid {
   border-color: #a4262c;
-  background: #fdf6f6;
+  background: color-mix(in srgb, var(--pinnad, #fff) 90%, #a4262c);
 }
-input:user-valid,
-select:user-valid { border-color: #1f7a4d; }
 
-.abi { font-size: 0.875rem; color: #46555e; }
+input:user-valid,
+select:user-valid {
+  border-color: #1f7a4d;
+}
+
+.abi {
+  font-size: 0.875rem;
+  color: #46555e;
+}
 
 /* Veakast on ALATI DOM-is olemas, ka tühjana: role="alert" element, mis
    alles vea hetkel luuakse, jääb sageli ette lugemata. */
-.viga { font-size: 0.875rem; color: #a4262c; min-height: 1.25rem; }
-.viga:empty { min-height: 0; }
+.viga {
+  font-size: 0.875rem;
+  color: #a4262c;
+  min-height: 1.25rem;
+}
+
+.viga:empty {
+  min-height: 0;
+}
 
 /* Märkeruut kõrvuti sildiga, mitte üksteise all. */
 .valja:has(> input[type="checkbox"]) {
@@ -50,15 +117,31 @@ select:user-valid { border-color: #1f7a4d; }
   gap: 0.5rem;
   flex-wrap: wrap;
 }
-.valja:has(> input[type="checkbox"]) .viga { flex-basis: 100%; }
+
+.valja:has(> input[type="checkbox"]) .viga {
+  flex-basis: 100%;
+}
 
 button {
   font: inherit;
-  padding: 0.5rem 1.2rem;
-  border-radius: 4px;
-  border: 1px solid #0b3d52;
-  background: #0b3d52;
+  padding: 0.65rem 1.2rem;
+  border-radius: var(--raadius, 6px);
+  border: 1px solid var(--rõhk, #0b3d52);
+  background: var(--rõhk, #0b3d52);
   color: #fff;
   cursor: pointer;
 }
-button[type="reset"] { background: #fff; color: #0b3d52; }
+
+.teema-luliti {
+  margin-inline-start: auto;
+  padding: 0.55rem 0.85rem;
+  border: 1px solid var(--jooned, #c7d2d8);
+  border-radius: var(--raadius, 6px);
+  background: var(--pinnad, #fff);
+  color: var(--tekst, #1a1a1a);
+}
+
+button[type="reset"] {
+  background: var(--pinnad, #fff);
+  color: var(--rõhk, #0b3d52);
+}
