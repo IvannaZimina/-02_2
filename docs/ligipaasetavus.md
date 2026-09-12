@@ -27,3 +27,9 @@
 | :-------------- | :------------------------------ |
 | `:invalid`      | KOHE lehe avamisel              |
 | `:user-invalid` | alles pärast väljaga tegelemist |
+
+### Teema lüliti ja fookus
+
+Teema lüliti on tavaline `button`, mitte ainult värviline ikoon. Sellel on `aria-pressed`, nii et ekraanilugeja saab teada, kas tume teema on aktiivne. Nupu tekst näitab järgmist võimalikku tegevust: `Kasuta tumedat teemat` või `Kasuta heledat teemat`.
+
+Teema muutmine ei eemalda `:focus-visible` äärt. Fookus on endiselt nähtav nii heledas kui ka tumedas teemas ning vormi sinine pidevõär on eemaldatud, et väli ei paistaks fookuses olevana enne kasutaja tegevust.
