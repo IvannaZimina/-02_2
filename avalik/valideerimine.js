@@ -61,6 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
         vali.addEventListener("blur", () => {
             if (epost1 && epost2 && (vali === epost1 || vali === epost2)) {
                 kontrolliKordust(epost1, epost2);
+                naita(epost2);
             }
             naita(vali);
         });
@@ -71,6 +72,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 kontrolliKordust(epost1, epost2);
                 if (epost1.getAttribute("aria-invalid") === "true") {
                     naita(epost1);
+                }
+                if (epost2.getAttribute("aria-invalid") === "true") {
+                    naita(epost2);
                 }
             }
             if (vali.getAttribute("aria-invalid") === "true") {
