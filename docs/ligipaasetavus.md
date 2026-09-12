@@ -11,3 +11,19 @@
   kas fookusjärjekord on LOOGILINE
   kas maamärkide jaotus on mõttekas
   kas aria-label on kasutajale arusaadav
+
+## Ülesanne 2 — Ostuvorm ja valideerimine
+
+### teade() kontrollitud juhtumid
+* **tühi kohustuslik väli** -> "See vali on kohustuslik."
+* **vale e-posti kuju** -> "Kontrolli e-posti aadressi kuju."
+* **minlength=2** -> "Vähemalt 2 tähemärki."
+* **max=6** -> "Suurim väärtus on 6."
+* **tundmatu põhjus** -> brauseri oma teade
+* **valueMissing + typeMismatch** -> kohustuslikkus võidab (kuna tühja välja kuju ei loeta)
+
+### Valijate võrdlus (:invalid vs :user-invalid)
+| valija          | millal kehtib                   |
+| :-------------- | :------------------------------ |
+| `:invalid`      | KOHE lehe avamisel              |
+| `:user-invalid` | alles pärast väljaga tegelemist |
