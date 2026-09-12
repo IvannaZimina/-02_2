@@ -1,5 +1,5 @@
 /* C02 Ex1 — näidislahendus. Nii palju stiili, et fookus ja kontrast oleks
-   kontrollitavad; kaskaad ja žetoonid tulevad ülesandes 3. */
+    kontrollitavad; kaskaad ja žetoonid tulevad ülesandes 3. */
 
 body {
   font-family: system-ui, sans-serif;
@@ -15,6 +15,7 @@ body {
   position: absolute;
   left: -9999px;
 }
+
 .hyppa:focus {
   position: static;
   display: inline-block;
@@ -36,16 +37,19 @@ footer {
   padding: 1rem 1.5rem;
   background: #f2f5f7;
 }
+
 header {
   display: flex;
   gap: 1.5rem;
   align-items: baseline;
   flex-wrap: wrap;
 }
+
 .logo {
   font-weight: 700;
   margin: 0;
 }
+
 nav ul {
   display: flex;
   gap: 1rem;
@@ -71,17 +75,21 @@ table {
   border-collapse: collapse;
   width: 100%;
 }
+
 caption {
   text-align: left;
   padding-block-end: 0.5rem;
-  color: #46555e; /* kontrast valgel 7,72:1 — mõõdetud, mitte arvatud */
+  color: #46555e;
+  /* kontrast valgel 7,72:1 — mõõdetud, mitte arvatud */
 }
+
 th,
 td {
   text-align: left;
   padding: 0.5rem 0.75rem;
   border-block-end: 1px solid #d5dde2;
 }
+
 thead th {
   border-block-end-width: 2px;
 }
@@ -94,14 +102,28 @@ thead th {
   flex-wrap: wrap;
   gap: 1.5rem;
 }
-.kaardid > li {
+
+.kaardid>li {
   flex: 1 1 18rem;
 }
+
 .kaardid img {
   max-width: 100%;
   height: auto;
   border-radius: 4px;
 }
+
 .meta {
   color: #46555e;
+}
+
+/* ★ Jõudluse optimeerimine 5000 kaardi jaoks */
+.kaart {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 10rem;
+  padding: 1rem;
+  border: 1px solid #d5dde2;
+  border-radius: 4px;
+  background: #fff;
+  margin-block-end: 1rem;
 }

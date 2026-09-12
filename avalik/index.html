@@ -53,6 +53,10 @@
 
         <section aria-labelledby="sec-kaardid">
             <h2 id="sec-kaardid">Esiletõstetud sündmused</h2>
+
+            <!-- Сюда сгенерируются 5000 карточек -->
+            <div class="kaardid-grid" id="grid"></div>
+
             <ul class="kaardid">
                 <li>
                     <article>
@@ -70,6 +74,24 @@
     <footer role="contentinfo">
         <p>&copy; 2026 Piletikassa</p>
     </footer>
+
+    <script>
+        // Замеряем время генерации и отрисовки 5000 карточек
+        const start = performance.now();
+
+        const grid = document.getElementById('grid');
+        let html = '';
+
+        for (let i = 1; i <= 5000; i++) {
+            html += `<div class="kaart"><h3>Kaart ${i}</h3><p>Testkirjeldus ja sisu...</p></div>`;
+        }
+        grid.innerHTML = html;
+
+        requestAnimationFrame(() => {
+            const end = performance.now();
+            console.log(`Paigutuse aeg: ${(end - start).toFixed(1)} ms`);
+        });
+    </script>
 
 </body>
 
