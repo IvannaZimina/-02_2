@@ -65,13 +65,17 @@ document.addEventListener("DOMContentLoaded", () => {
             naita(vali);
         });
 
-        // Viga kaob input-il (kirjutamise ajal)
+        // Viga kaob input-il, aga uuendatakse ainult siis, kui viga on juba ees
         vali.addEventListener("input", () => {
             if (epost1 && epost2 && (vali === epost1 || vali === epost2)) {
                 kontrolliKordust(epost1, epost2);
-                naita(epost1);
+                if (epost1.getAttribute("aria-invalid") === "true") {
+                    naita(epost1);
+                }
             }
-            naita(vali);
+            if (vali.getAttribute("aria-invalid") === "true") {
+                naita(vali);
+            }
         });
     });
 
