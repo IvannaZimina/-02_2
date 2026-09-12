@@ -6,12 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Piletikassa - Ostuvorm</title>
     <link rel="stylesheet" href="stiil-2.css">
+    <link rel="stylesheet" href="kihid.css">
+    <link rel="stylesheet" href="paigutus.css">
 </head>
 
 <body>
 
     <header role="banner">
-        <h1 class="logo">Piletikassa</h1>
+        <a class="logo" href="index.html">Piletikassa</a>
+        <a class="tagasi-link" href="index.html">← Tagasi sündmuste juurde</a>
+        <button class="teema-luliti" type="button" data-teema-luliti aria-pressed="false">
+            Kasuta tumedat teemat
+        </button>
     </header>
 
     <main id="main">
@@ -99,6 +105,7 @@
     </footer>
 
     <script type="module" src="valideerimine.js"></script>
+    <script type="module" src="teema.js"></script>
 </body>
 
 </html>
