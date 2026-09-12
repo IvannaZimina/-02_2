@@ -30,8 +30,9 @@ body {
 
 /* 4. Piira rea pikkust ch-ga ja kasuta min()-i, et ta ka kitsal ekraanil peaks. */
 p {
-    inline-size: min(100% - 2rem, 60ch);
+    inline-size: min(calc(100% - 2rem), 60ch);
 }
+
 /* 6. Tee ruudustik auto-fit ja minmax abil, ilma ühegi meediapäringuta. */
 .kaardid-grid {
     display: grid;
