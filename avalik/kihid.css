@@ -4,30 +4,44 @@
 /* 2. Pane žetoonid kihti alused: pinnad, tekst, jooned, röhk, samm ja raadius. */
 @layer alused {
     :root {
-        --pinnad: #ffffff;
-        --tekst: #222222;
-        --jooned: #cccccc;
-        --rõhk: #0066cc;
+        --pinnad: #fffaf4;
+        --pind-teine: #f3eadf;
+        --tekst: #282421;
+        --jooned: #d6c9bd;
+        --rõhk: #9b4d32;
+        --fookus: #b96842;
         --samm: 1rem;
-        --raadius: 6px;
+        --raadius: 8px;
     }
 
     /* 3. Tee tume teema kolmes astmes: :root, prefers-color-scheme, data-teema. */
     @media (prefers-color-scheme: dark) {
         :root {
-            --pinnad: #1a1a1a;
-            --tekst: #f0f0f0;
-            --jooned: #444444;
-            --rõhk: #3399ff;
+            --pinnad: #211f1d;
+            --pind-teine: #302b27;
+            --tekst: #f5eee7;
+            --jooned: #665950;
+            --rõhk: #e6a17e;
+            --fookus: #f0b18e;
         }
     }
 
-    /* 5. VIHJE: kasutaja valik peab võitma süsteemi eelistuse — asub allpool (hilisem reegel võidab). */
-    [data-teema="tume"] {
-        --pinnad: #1a1a1a;
-        --tekst: #f0f0f0;
-        --jooned: #444444;
-        --rõhk: #3399ff;
+    :root[data-teema="hele"] {
+        --pinnad: #fffaf4;
+        --pind-teine: #f3eadf;
+        --tekst: #282421;
+        --jooned: #d6c9bd;
+        --rõhk: #9b4d32;
+        --fookus: #b96842;
+    }
+
+    :root[data-teema="tume"] {
+        --pinnad: #211f1d;
+        --pind-teine: #302b27;
+        --tekst: #f5eee7;
+        --jooned: #665950;
+        --rõhk: #e6a17e;
+        --fookus: #f0b18e;
     }
 }
 
@@ -37,27 +51,31 @@
         color-scheme: light dark;
     }
 
-    :root[data-teema="tume"] {
-        color-scheme: dark;
-    }
-
     @media (prefers-color-scheme: dark) {
         :root {
             color-scheme: dark;
         }
+    }
+
+    :root[data-teema="hele"] {
+        color-scheme: light;
+    }
+
+    :root[data-teema="tume"] {
+        color-scheme: dark;
     }
 }
 
 /* 6. Pane sama .valja reegel kihtidesse raamistik ja meie; vaata, kumb võidab. */
 @layer raamistik {
     .valja {
-        border: 1px solid var(--jooned);
+        background: var(--pind-teine);
     }
 }
 
 @layer meie {
     .valja {
-        border: 2px solid var(--rõhk);
+        border-radius: var(--raadius);
     }
 }
 
