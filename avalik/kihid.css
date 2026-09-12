@@ -1,0 +1,77 @@
+/* 1. Kuuluta viis kihti ühe reaga, enne ühtki reeglit. */
+@layer alused, raamistik, komponendid, meie, erand;
+
+/* 2. Pane žetoonid kihti alused: pinnad, tekst, jooned, röhk, samm ja raadius. */
+@layer alused {
+    :root {
+        --pinnad: #ffffff;
+        --tekst: #222222;
+        --jooned: #cccccc;
+        --rõhk: #0066cc;
+        --samm: 1rem;
+        --raadius: 6px;
+    }
+
+    /* 3. Tee tume teema kolmes astmes: :root, prefers-color-scheme, data-teema. */
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --pinnad: #1a1a1a;
+            --tekst: #f0f0f0;
+            --jooned: #444444;
+            --rõhk: #3399ff;
+        }
+    }
+
+    /* 5. VIHJE: kasutaja valik peab võitma süsteemi eelistuse — asub allpool (hilisem reegel võidab). */
+    [data-teema="tume"] {
+        --pinnad: #1a1a1a;
+        --tekst: #f0f0f0;
+        --jooned: #444444;
+        --rõhk: #3399ff;
+    }
+}
+
+/* 4. Lisa color-scheme, et ka kerimisribad ja väljad teemaga kaasa läheksid. */
+@layer alused {
+    :root {
+        color-scheme: light dark;
+    }
+
+    :root[data-teema="tume"] {
+        color-scheme: dark;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        :root {
+            color-scheme: dark;
+        }
+    }
+}
+
+/* 6. Pane sama .valja reegel kihtidesse raamistik ja meie; vaata, kumb võidab. */
+@layer raamistik {
+    .valja {
+        border: 1px solid var(--jooned);
+    }
+}
+
+@layer meie {
+    .valja {
+        border: 2px solid var(--rõhk);
+    }
+}
+
+/* 7. Kasuta :where() lähtestuseks ja :is() rühmitamiseks — arvuta mõlema hind. */
+@layer komponendid {
+
+    /* :where() всегда имеет специфичность 0-0-0, независимо от селекторов внутри */
+    :where(h1, h2, h3) {
+        margin: 0;
+        font-weight: normal;
+    }
+
+    /* :is() принимает наибольшую специфичность среди своих аргументов (для h2, h3 это 0-0-1) */
+    :is(h2, h3) {
+        color: var(--tekst);
+    }
+}
