@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="et">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piletikassa - Sündmused</title>
+    <link rel="stylesheet" href="stiil-1.css">
+</head>
+
+<body>
+
+    <a href="#main" class="hyppa">Hüppa põhisisu juurde</a>
+
+    <header role="banner">
+        <h1 class="logo">Piletikassa</h1>
+        <nav aria-label="Peamenüü">
+            <ul>
+                <li><a href="#" aria-current="page">Avaleht</a></li>
+                <li><a href="#">Sündmused</a></li>
+                <li><a href="#">Kontakt</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="main">
+
+        <section aria-labelledby="sec-tabel">
+            <h2 id="sec-tabel">Sündmuste võrdlus</h2>
+            <table>
+                <caption>Piletite ja aegade võrdlus</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Üritus</th>
+                        <th scope="col">Koht</th>
+                        <th scope="col">Hind alates</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">Arendajate hommik</th>
+                        <td>Delta</td>
+                        <td>10 €</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Kultuuriöö</th>
+                        <td>Aparaaditehas</td>
+                        <td>15 €</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section aria-labelledby="sec-kaardid">
+            <h2 id="sec-kaardid">Esiletõstetud sündmused</h2>
+            <ul class="kaardid">
+                <li>
+                    <article>
+                        <h3><a href="#">Arendajate hommik</a></h3>
+                        <img src="pildid/muster.svg" width="640" height="360" loading="lazy" decoding="async" alt="">
+                        <p>Kolm ettekannet ja hommikukohv.</p>
+                        <p class="meta"><time datetime="2026-09-13T09:30">13. sept 9.30</time> · Delta</p>
+                    </article>
+                </li>
+            </ul>
+        </section>
+
+    </main>
+
+    <footer role="contentinfo">
+        <p>&copy; 2026 Piletikassa</p>
+    </footer>
+
+</body>
+
+</html>
